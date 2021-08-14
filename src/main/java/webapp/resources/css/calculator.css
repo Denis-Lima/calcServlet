@@ -1,0 +1,100 @@
+html,
+body {
+  background-color: aqua;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  background-color: #8961e63d;
+  width: 500px;
+  height: 600px;
+  border-radius: 30px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body div.center {
+  height: 100vh;
+  flex-direction: column;
+}
+
+form div.center {
+  height: 100%;
+}
+
+.block {
+  display: block;
+}
+
+div.item p {
+  font-size: larger;
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+}
+
+.item {
+  margin: 10px;
+  height: 60px;
+  width: 200px;
+}
+
+.select {
+  align-items: center;
+}
+
+form div div.item.center {
+  flex-direction: row;
+  height: 60px;
+}
+
+select,
+input {
+  width: 200px;
+}
+
+select {
+  text-align: center;
+}
+
+input[type="submit"] {
+  font-size: large;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: rgb(117, 235, 117);
+}
+
+input[type="submit"]:hover {
+  background-color: green;
+}
+
+input[type="submit"]:focus {
+  background-color: rgb(0, 194, 0);
+}
+
+input, select {
+  border-radius: 5px;
+  border: none;
+  height: 25px;
+}
+
+input:focus, select:focus {
+  outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

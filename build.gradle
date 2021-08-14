@@ -1,0 +1,30 @@
+plugins {
+    id 'war'
+    id "org.gretty" version "3.0.6"
+}
+
+group 'org.fatec'
+version '1.0-SNAPSHOT'
+
+repositories {
+    //jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+    //compile 'javax.servlet:jst1:1.2'
+    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+
+//test {
+//    useJUnitPlatform()
+//}
+
+gretty {
+    servletContainer = 'tomcat9'
+    httpPort = 8081
+    contextPath = '/'
+    loggingLevel = 'ALL'
+}

@@ -1,4 +1,7 @@
-package controller;
+package br.com.fatec.controller;
+
+import br.com.fatec.model.Log;
+import br.com.fatec.model.LogDAO;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -8,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet({"*.action", "/teste"})
 public class Calculator extends HttpServlet {
@@ -18,20 +22,20 @@ public class Calculator extends HttpServlet {
             String path = req.getServletPath();
             ServletContext sc = req.getServletContext();
             System.out.println(path);
-            System.out.println(path.length());
 
             switch (path) {
                 case "/teste":
                     System.out.println("get in /teste");
                     sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
                     break;
-                case "/teste/escrevernome.action":
+                case "/escrevernome.action":
                     req.setCharacterEncoding("UTF-8");
                     String nome = req.getParameter("nome_completo");
                     nome = nome.toUpperCase();
                     resp.setContentType("text/html");
                     resp.setCharacterEncoding("UTF-8");
-                    req.setAttribute("nomeCompleto", nome);
+                    List<Log> logs = LogDAO.getInstance().findAll();
+                    req.setAttribute("logs", logs);
                     sc.getRequestDispatcher("/jsp/resposta.jsp").forward(req, resp);
                     break;
                 default:

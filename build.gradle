@@ -18,7 +18,6 @@ dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
     implementation 'org.hibernate:hibernate-core:5.5.5.Final'
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.3'
-    //implementation 'mysql:mysql-connector-java:8.0.18'
     //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 }
@@ -26,10 +25,10 @@ dependencies {
 //test {
 //    useJUnitPlatform()
 //}
-
+//
 gretty {
     servletContainer = 'tomcat9'
-    httpPort = 8081
+    httpPort = 8082
     contextPath = '/'
     loggingLevel = 'ALL'
 }

@@ -17,6 +17,7 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="javax.persistence.sql-load-script-source" value="sql/insert.sql" />
         </properties>
     </persistence-unit>
 </persistence>

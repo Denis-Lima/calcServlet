@@ -11,11 +11,14 @@ import javax.persistence.*;
 public class Classificacao {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "tipo", nullable = false)
     private String tipo;
+
+    // CONSTRUCTOR
+    public Classificacao(){}
 
     // GETTERS AND SETTERS
     public Long getId() {

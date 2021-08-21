@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet({"*.action", "/teste", "/index.html"})
+@WebServlet(urlPatterns = "/calc")
 public class Calculator extends HttpServlet {
 
     @Override
@@ -20,38 +20,28 @@ public class Calculator extends HttpServlet {
         try {
             String path = req.getServletPath();
             ServletContext sc = req.getServletContext();
-            System.out.println(path);
-            switch (path) {
-                case "/teste":
-                    sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
-                    break;
-                case "/calcular.action":
-                    req.setCharacterEncoding("UTF-8");
-                    double op1 = Double.parseDouble(req.getParameter("op1"));
-                    double op2 = Double.parseDouble(req.getParameter("op2"));
-                    String operacao = req.getParameter("operacao");
-                    System.out.println(op1 + " " + op2 + " " + operacao);
-                    resp.setContentType("text/html");
-                    resp.setCharacterEncoding("UTF-8");
+            System.out.println("controller chamado--- " + path);
 
-                    // Inserting new Log
-                    Log novoLog = new Log();
-                    novoLog.setArgumento1(op1);
-                    novoLog.setArgumento2(op2);
-                    novoLog.setOperacao(operacao);
-                    LogDAO.getInstance().persist(novoLog);
+            sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
 
-                    req.setAttribute("resultado", op1 + op2);
-                    sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
-                    break;
-                case "/index.html":
-                    sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
-                default:
-                    sc.getRequestDispatcher("/jsp/not_found.jsp").forward(req, resp);
-                    break;
-            }
-            PrintWriter pw = resp.getWriter();
-            pw.write("Testado!");
+//                    req.setCharacterEncoding("UTF-8");
+//                    double op1 = Double.parseDouble(req.getParameter("op1"));
+//                    double op2 = Double.parseDouble(req.getParameter("op2"));
+//                    String operacao = req.getParameter("operacao");
+//                    System.out.println(op1 + " " + op2 + " " + operacao);
+//                    resp.setContentType("text/html");
+//                    resp.setCharacterEncoding("UTF-8");
+//
+//                    // Inserting new Log
+//                    Log novoLog = new Log();
+//                    novoLog.setArgumento1(op1);
+//                    novoLog.setArgumento2(op2);
+//                    novoLog.setOperacao(operacao);
+//                    LogDAO.getInstance().persist(novoLog);
+//
+//                    req.setAttribute("resultado", op1 + op2);
+//                    sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
+
         } catch (IOException | ServletException e) {
             e.printStackTrace();
         }

@@ -1,41 +1,43 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./resources/css/calculator.css" />
-    <title>Calculadora</title>
-</head>
-<body>
-<div class="center">
-    <h1>Calculadora</h1>
-    <form action="calcular.action">
+    <head>
+        <%@ page contentType="text/html; charset=UTF-8" %>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./resources/css/calculator.css" type="text/css" />
+        <title>Calculadora</title>
+    </head>
+    <body>
         <div class="center">
-            <div class="item">
-                <p>Insira um número</p>
-                <input type="number" name="op1" id="op1" placeholder="Número 1" />
-            </div>
-            <div class="item center">
-                <select name="operacao" id="operacao">
-                    <option value="soma">Soma (+)</option>
-                    <option value="subtracao">Subtração (-)</option>
-                    <option value="tangente">Tangente hiberbólica tahn(x)</option>
-                </select>
-            </div>
-            <div class="item n2">
-                <p>Insira outro número</p>
-                <input type="number" name="op2" id="op2" placeholder="Número 2" />
-            </div>
-            <div class="item">
-                <input type="submit" name="submit" id="submit" value="Calcular"/>
-            </div>
-            <div>
-                <p>Resultado: ${resultado}</p>
-            </div>
+            <h1>Calculadora</h1>
+            <form action="calcular.action">
+                <div class="center">
+                    <div class="item">
+                        <p>Insira um número</p>
+                        <p>dsadsa</p>
+                        <input type="number" name="op1" id="op1" placeholder="Número 1" />
+                    </div>
+                    <div class="item center">
+                        <select name="operacao" id="operacao">
+                            <option value="soma">Soma (+)</option>
+                            <option value="subtracao">Subtração (-)</option>
+                            <option value="tangente">Tangente hiberbólica tahn(x)</option>
+                        </select>
+                    </div>
+                    <div class="item n2">
+                        <p>Insira outro número</p>
+                        <input type="number" name="op2" id="op2" placeholder="Número 2" />
+                    </div>
+                    <div class="item">
+                        <input type="submit" name="submit" id="submit" value="Calcular"/>
+                    </div>
+                    <div>
+                        <p>Resultado: ${resultado}</p>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
-</body>
+    </body>
 </html>

@@ -3,7 +3,7 @@ package br.com.fatec.model;
 import javax.persistence.*;
 
 /**
- * Author: denis
+ * Author: Denis Lima
  */
 
 @Entity

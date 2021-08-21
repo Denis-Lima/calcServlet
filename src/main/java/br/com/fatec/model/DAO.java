@@ -4,7 +4,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * Author: denis
+ * Author: Denis Lima
  */
 
 public abstract class DAO {

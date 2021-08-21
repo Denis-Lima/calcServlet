@@ -4,7 +4,7 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**
- * Author: denis
+ * Author: Denis Lima
  */
 
 public class LogDAO extends DAO {
@@ -34,6 +34,7 @@ public class LogDAO extends DAO {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public List<Log> findAll() {
         return entityManager.createQuery("FROM " + Log.class.getName()).getResultList();
     }

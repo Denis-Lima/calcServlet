@@ -4,7 +4,7 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**
- * Author: denis
+ * Author: Denis Lima
  */
 
 public class ClassificacaoDAO extends DAO {

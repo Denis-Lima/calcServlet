@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
- * Author: denis
+ * Author: Denis Lima
  */
 
 @Entity

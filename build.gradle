@@ -4,6 +4,9 @@ plugins {
     id 'war'
     id "org.gretty" version "3.0.6"
 }
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 group 'org.fatec'
 version '1.0-SNAPSHOT'

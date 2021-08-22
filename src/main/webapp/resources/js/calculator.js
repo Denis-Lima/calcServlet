@@ -4,13 +4,10 @@ form.addEventListener('submit', event => {
 })
 
 function getResult(e) {
-    console.log(e)
     e.preventDefault()
-    console.log('ENTREI')
     const operacao = document.querySelector("#operacao").value
     const op1 = document.querySelector("#op1").value;
     const op2 = document.querySelector("#op2").value;
-    console.log(operacao)
 
     if (verifyOperators(op1, op2, operacao)) {
         postResult(op1, op2, operacao)
@@ -47,6 +44,12 @@ function verifyOperators(op1, op2, operacao) {
  */
 function postResult(op1, op2, operacao) {
     const xhttp = new XMLHttpRequest()
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            const result = document.querySelector('#resultado')
+            result.innerHTML = `Resultado: ${this.responseText}`
+        }
+    }
     xhttp.open("POST", `/calc?op1=${op1}&op2=${op2}&operacao=${operacao}`, true)
     xhttp.send()
 }

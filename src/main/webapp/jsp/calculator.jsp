@@ -33,7 +33,7 @@
                         <input type="submit" name="submit" id="submit" value="Calcular"/>
                     </div>
                     <div>
-                        <p>Resultado: ${resultado}</p>
+                        <p id="resultado"></p>
                     </div>
                 </div>
             </form>

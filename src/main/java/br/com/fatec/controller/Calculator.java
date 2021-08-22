@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/calc/*")
 public class Calculator extends HttpServlet {
@@ -77,10 +78,9 @@ public class Calculator extends HttpServlet {
                     break;
             }
 
-            resp.setContentType("text/html");
             resp.setCharacterEncoding("UTF-8");
-            req.setAttribute("resultado", resultado);
-            sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
+            PrintWriter out = resp.getWriter();
+            out.write(String.valueOf(resultado));
 
         } catch (Exception e) {
             e.printStackTrace();

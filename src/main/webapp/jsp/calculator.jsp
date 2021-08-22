@@ -12,11 +12,10 @@
     <body>
         <div class="center">
             <h1>Calculadora</h1>
-            <form action="calcular.action">
+            <form>
                 <div class="center">
                     <div class="item">
                         <p>Insira um número</p>
-                        <p>dsadsa</p>
                         <input type="number" name="op1" id="op1" placeholder="Número 1" />
                     </div>
                     <div class="item center">
@@ -40,4 +39,5 @@
             </form>
         </div>
     </body>
+    <script src="./resources/js/calculator.js"></script>
 </html>

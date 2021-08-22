@@ -1,6 +1,7 @@
 package br.com.fatec.model;
 
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -35,6 +36,10 @@ public class ClassificacaoDAO extends DAO {
 
     public List<Classificacao> findAll() {
         return entityManager.createQuery("FROM " + Classificacao.class.getName()).getResultList();
+    }
+
+    public Classificacao find(long id) {
+        return entityManager.find(Classificacao.class, id);
     }
 
     public void remove(Long id) {

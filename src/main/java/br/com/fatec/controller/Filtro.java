@@ -15,7 +15,7 @@ import java.util.List;
 @WebFilter(urlPatterns = "/*")
 public class Filtro  implements Filter {
 
-    private List<String> mappedUrl = Arrays.asList("/logs","/calc", "/calcular.action");
+    private List<String> mappedUrl = Arrays.asList("/logs","/calc");
 
     @Override
     public void init(final FilterConfig filterConfig) throws ServletException {
@@ -25,7 +25,7 @@ public class Filtro  implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         final HttpServletRequest req = (HttpServletRequest) request;
         final String uri = req.getRequestURI();
-        boolean isStaticResource = uri.contains("resources/css");
+        boolean isStaticResource = uri.contains("resources/css") || uri.contains("resources/js");
 
         System.out.println("filtro chamado -----> " + uri);
         //System.out.println("static? -----> " + isStaticResource);

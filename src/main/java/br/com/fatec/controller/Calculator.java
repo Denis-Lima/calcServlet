@@ -1,7 +1,11 @@
 package br.com.fatec.controller;
 
+import br.com.fatec.model.Classificacao;
+import br.com.fatec.model.ClassificacaoDAO;
 import br.com.fatec.model.Log;
-import br.com.fatec.model.LogDAO;
+import br.com.fatec.services.ElementarServices;
+import br.com.fatec.services.LogServices;
+import br.com.fatec.services.TranscendentalServices;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -10,9 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = "/calc")
+@WebServlet(urlPatterns = "/calc/*")
 public class Calculator extends HttpServlet {
 
     @Override
@@ -24,13 +27,8 @@ public class Calculator extends HttpServlet {
 
             sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
 
-//                    req.setCharacterEncoding("UTF-8");
-//                    double op1 = Double.parseDouble(req.getParameter("op1"));
-//                    double op2 = Double.parseDouble(req.getParameter("op2"));
-//                    String operacao = req.getParameter("operacao");
-//                    System.out.println(op1 + " " + op2 + " " + operacao);
-//                    resp.setContentType("text/html");
-//                    resp.setCharacterEncoding("UTF-8");
+//
+
 //
 //                    // Inserting new Log
 //                    Log novoLog = new Log();
@@ -43,6 +41,48 @@ public class Calculator extends HttpServlet {
 //                    sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
 
         } catch (IOException | ServletException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        try {
+            ServletContext sc = req.getServletContext();
+            req.setCharacterEncoding("UTF-8");
+
+            String operacao = req.getParameter("operacao");
+            double op1 = Double.parseDouble(req.getParameter("op1"));
+            double op2;
+            double resultado;
+
+            switch (operacao) {
+                case "soma":
+                    op2 = Double.parseDouble(req.getParameter("op2"));
+                    resultado = ElementarServices.somar(op1, op2);
+                    break;
+
+                case "subtracao":
+                    op2 = Double.parseDouble(req.getParameter("op2"));
+                    resultado = ElementarServices.subtrair(op1, op2);
+                    break;
+
+                case "tangente":
+                    resultado = TranscendentalServices.tangenteHiberbolica(op1);
+                    LogServices.salvarTranscendental(op1, "Tangente hiberbólica");
+                    break;
+
+                default:
+                    resultado = 0.0;
+                    break;
+            }
+
+            resp.setContentType("text/html");
+            resp.setCharacterEncoding("UTF-8");
+            req.setAttribute("resultado", resultado);
+            sc.getRequestDispatcher("/jsp/calculator.jsp").forward(req, resp);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

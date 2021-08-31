@@ -10,6 +10,10 @@
     <title>Logs</title>
   </head>
   <body>
+    <div class="nav">
+      <a href="calculator.html">Calculadora</a>
+      <a class="primary" href="logs.html">Logs</a>
+    </div>
     <div class="vh center">
       <div class="center">
         <table>
@@ -26,11 +30,11 @@
             <c:if test="${!logs.isEmpty()}">
               <c:forEach var="log" items="${logs}">
                 <tr>
-                  <td><c:out value="${log.dataOperacao}"/></td>
-                  <td><c:out value="${log.tipoOperacao.tipo}"/></td>
-                  <td><c:out value="${log.operacao}"/></td>
-                  <td><c:out value="${log.argumento1}"/></td>
-                  <td><c:out value="${log.argumento2}"/></td>
+                  <td><c:out value="${log.dataOperacao}" /></td>
+                  <td><c:out value="${log.tipoOperacao.tipo}" /></td>
+                  <td><c:out value="${log.operacao}" /></td>
+                  <td><c:out value="${log.argumento1}" /></td>
+                  <td><c:out value="${log.argumento2}" /></td>
                 </tr>
               </c:forEach>
             </c:if>

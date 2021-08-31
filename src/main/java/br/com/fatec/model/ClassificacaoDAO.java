@@ -34,6 +34,7 @@ public class ClassificacaoDAO extends DAO {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public List<Classificacao> findAll() {
         return entityManager.createQuery("FROM " + Classificacao.class.getName()).getResultList();
     }

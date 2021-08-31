@@ -28,11 +28,8 @@ public class Log {
     @Column(name = "operacao")
     private String operacao;
 
-    @Column(name = "argumento1")
-    private double argumento1;
-
-    @Column(name = "argumento2")
-    private double argumento2;
+    @Column(name = "args")
+    private String args;
 
     // CONSTRUCTOR
     public Log() {}
@@ -71,19 +68,12 @@ public class Log {
         this.operacao = operacao;
     }
 
-    public double getArgumento1() {
-        return this.argumento1;
+    public String getArgs() {
+        return this.args;
     }
 
-    public void setArgumento1(double argumento1) {
-        this.argumento1 = argumento1;
+    public void setArgs(String args) {
+        this.args = args;
     }
 
-    public double getArgumento2() {
-        return this.argumento2;
-    }
-
-    public void setArgumento2(double argumento2) {
-        this.argumento2 = argumento2;
-    }
 }

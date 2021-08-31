@@ -13,9 +13,9 @@ import java.util.List;
  */
 
 @WebFilter(urlPatterns = "/*")
-public class Filtro  implements Filter {
+public class Filtro implements Filter {
 
-    private List<String> mappedUrl = Arrays.asList("/logs","/calc");
+    private final List<String> mappedUrl = Arrays.asList("/logs","/calculadora","/not-found");
 
     @Override
     public void init(final FilterConfig filterConfig) throws ServletException {
@@ -23,19 +23,19 @@ public class Filtro  implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        final HttpServletRequest req = (HttpServletRequest) request;
-        final String uri = req.getRequestURI();
-        boolean isStaticResource = uri.contains("resources/css") || uri.contains("resources/js");
+        HttpServletRequest req = (HttpServletRequest) request;
+        String uri = req.getRequestURI();
+
+        boolean isStaticResource = uri.contains("resources/");
 
         System.out.println("filtro chamado -----> " + uri);
-        //System.out.println("static? -----> " + isStaticResource);
 
-        if (!uri.contains("favicon")) {
+        if (!uri.contains("favicon") && !uri.contains("/calc/")) {
             if (mappedUrl.contains(uri) || isStaticResource) {
                 chain.doFilter(request, response);
             } else {
                 HttpServletResponse res = (HttpServletResponse) response;
-                res.sendRedirect(req.getContextPath() + "/not-found");
+                res.sendRedirect("/not-found");
             }
         }
     }

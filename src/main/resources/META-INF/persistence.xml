@@ -16,7 +16,7 @@
             <property name="javax.persistence.jdbc.password" value="secret" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect" />
             <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
             <property name="hibernate.connection.CharSet" value="UTF-8" />
             <property name="hibernate.connection.characterEncoding" value="UTF-8" />
             <property name="hibernate.connection.useUnicode" value="true" />

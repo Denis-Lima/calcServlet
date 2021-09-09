@@ -1,0 +1,30 @@
+html,
+body {
+  background-color: aqua;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* MENU */
+.nav {
+  background-color: cadetblue;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 0px 0px 10px 0px;
+}
+
+a {
+  font-size: 40px;
+  text-decoration: none;
+  color: white;
+}
+
+a.primary {
+  color: silver;
+}
+
+a:hover {
+  color: deepskyblue;
+}

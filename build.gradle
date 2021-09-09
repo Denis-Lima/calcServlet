@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'war'
-    id "org.gretty" version "3.0.6"
+//    id "org.gretty" version "3.0.6"
 }
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -29,9 +29,9 @@ dependencies {
 //    useJUnitPlatform()
 //}
 //
-gretty {
-    servletContainer = 'tomcat9'
-    httpPort = 8082
-    contextPath = '/'
-    loggingLevel = 'ALL'
-}
+//gretty {
+//    servletContainer = 'tomcat9'
+//    httpPort = 8082
+//    contextPath = '/'
+//    loggingLevel = 'ALL'
+//}

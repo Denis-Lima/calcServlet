@@ -11,10 +11,14 @@
   </head>
   <body>
     <div class="nav">
-      <a href="calculator.html">Calculadora</a>
-      <a class="primary" href="logs.html">Logs</a>
+      <a href="calculadora">Calculadora</a>
+      <a class="primary" href="logs">Logs</a>
     </div>
     <div class="vh center">
+      <div class="logs">
+        <h3>Filtrar logs:</h3>
+          <input type="text" id="filtro" placeholder="Digite para filtrar" onkeyup="filtrar()" />
+        </div>
       <div class="center">
         <table>
           <thead>
@@ -22,19 +26,17 @@
               <td>Data da operação</td>
               <td>Tipo de operação</td>
               <td>Operação</td>
-              <td>Argumento 1</td>
-              <td>Argumento 2</td>
+              <td>Cálculo</td>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tbody">
             <c:if test="${!logs.isEmpty()}">
               <c:forEach var="log" items="${logs}">
                 <tr>
                   <td><c:out value="${log.dataOperacao}" /></td>
                   <td><c:out value="${log.tipoOperacao.tipo}" /></td>
                   <td><c:out value="${log.operacao}" /></td>
-                  <td><c:out value="${log.argumento1}" /></td>
-                  <td><c:out value="${log.argumento2}" /></td>
+                  <td><c:out value="${log.args}" /></td>
                 </tr>
               </c:forEach>
             </c:if>
@@ -42,5 +44,6 @@
         </table>
       </div>
     </div>
+    <script src="./resources/js/filter.js"></script>
   </body>
 </html>

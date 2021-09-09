@@ -66,7 +66,7 @@ function postResult(op1, op2, operacao) {
                 saveLog(op1, op2, operacao, this.responseText, tipo)
             }
         }
-        const urlCalcService = `localhost:9090/${tipo}Services-1.0/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
+        const urlCalcService = `http://localhost:9090/${tipo}Services-1.0/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
         console.log(urlCalcService)
         xhttp.open("POST", urlCalcService, true)
         xhttp.send()
@@ -75,7 +75,7 @@ function postResult(op1, op2, operacao) {
 
 function saveLog(op1, op2, operacao, resultado, tipo) {
     const xhttp = new XMLHttpRequest()
-    const urlLog = `localhost:9090/logs?op1=${op1}&op2=${op2}&operacao=${operacao}&resultado=${resultado}&tipo=${tipo}`
+    const urlLog = `logs?op1=${op1}&op2=${op2}&operacao=${operacao}&resultado=${resultado}&tipo=${tipo}`
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             console.log("Log salvo!")

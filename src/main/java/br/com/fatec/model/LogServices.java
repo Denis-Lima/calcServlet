@@ -25,7 +25,7 @@ public class LogServices {
                 throw new Exception("Operação inválida! ");
         }
 
-        String args = op1 + " " + simbolo + " " + op2 + " " + resultado;
+        String args = op1 + " " + simbolo + " " + op2 + " = " + resultado;
 
         Log registro = new Log();
         registro.setOperacao(operacao);

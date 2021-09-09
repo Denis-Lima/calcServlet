@@ -11,8 +11,8 @@
   </head>
   <body>
     <div class="nav">
-      <a class="primary" href="calculator.html">Calculadora</a>
-      <a href="logs.html">Logs</a>
+      <a class="primary" href="calculadora">Calculadora</a>
+      <a href="logs">Logs</a>
     </div>
     <div class="center">
       <h1>Calculadora</h1>

@@ -26,6 +26,8 @@
             <select name="operacao" id="operacao">
               <option value="soma">Soma (+)</option>
               <option value="subtracao">Subtração (-)</option>
+              <option value="multiplicacao">Multiplicação (*)</option>
+              <option value="divisao">Divisão (/)</option>
               <option value="tanh">Tangente hiberbólica tahn(x)</option>
             </select>
           </div>

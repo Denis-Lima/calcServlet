@@ -24,7 +24,9 @@ public class Filtro implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
-        String uri = req.getRequestURI();
+        String contextPath = req.getContextPath();
+        String uri = req.getServletPath();
+        //String uri = req.getRequestURI().replace(contextPath, "");
 
         boolean isStaticResource = uri.contains("resources/");
 
@@ -35,7 +37,7 @@ public class Filtro implements Filter {
                 chain.doFilter(request, response);
             } else {
                 HttpServletResponse res = (HttpServletResponse) response;
-                res.sendRedirect("/not-found");
+                res.sendRedirect(contextPath + "/not-found");
             }
         }
     }

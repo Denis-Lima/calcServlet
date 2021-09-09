@@ -65,3 +65,7 @@ a.primary {
 a:hover {
   color: deepskyblue;
 }
+
+tbody tr:hover {
+    background-color: white;
+}

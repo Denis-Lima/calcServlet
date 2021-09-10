@@ -18,13 +18,20 @@ Processo de build (Gradle 7):
 1. Criar uma pasta vazia
 2. Clonar o repositório com:  
 ```console
-	git clone https://github.com/Denis-Lima/calcServlet.git
+git clone https://github.com/Denis-Lima/calcServlet.git
 ```
 3. Navegar para a pasta calcServlet
 4. Executar o comando: 
 ```console
-	gradlew build
+gradlew build
 ```
 5. Ir na pasta build/libs
 6. Copiar o arquivo calcServlet-1.0.war para a pasta webapps do seu TomCat
 7. Rodar o TomCat e acessar na sua URL do TomCat, passando a rota /calcServlet-1.0/calculadora
+8. Para baixar dependências, utilize o comando:
+```console
+gradlew dependencies
+```
+
+### Video explicativo da entrega
+[Video entrega 1](https://www.youtube.com/watch?v=WyqoCjqRQ1Q)

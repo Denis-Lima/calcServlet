@@ -10,11 +10,11 @@ JPA com Hibernate - 5.5.5
 Servlets - 4.0.1  
 Java Server Pages  
 Gradle - 7.1.1  
-Apache TomCat = 9.0  
+Apache TomCat - 9.0  
 MariaDB - 2.7.3
 
 
-Processo de build (Gradle 7):
+### Processo de build (Gradle 7):
 1. Criar uma pasta vazia
 2. Clonar o repositório com:  
 ```console
@@ -28,7 +28,10 @@ gradlew build
 5. Ir na pasta build/libs
 6. Copiar o arquivo calcServlet-1.0.war para a pasta webapps do seu TomCat
 7. Rodar o TomCat e acessar na sua URL do TomCat, passando a rota /calcServlet-1.0/calculadora
-8. Para baixar dependências, utilize o comando:
+
+
+### Obtenção de dependências com Gradle:
+Digite o seguinte comando:
 ```console
 gradlew dependencies
 ```

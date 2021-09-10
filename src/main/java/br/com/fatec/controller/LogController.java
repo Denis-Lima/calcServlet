@@ -23,18 +23,18 @@ public class LogController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        List<Log> logs = null;
+        try {
+            logs = LogDAO.getInstance().findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         try {
             ServletContext sc = req.getServletContext();
-
-            List<Log> logs = LogDAO.getInstance().findAll();
-
-            for(Log log: logs) {
-                System.out.println(log.getId());
-            }
-
             sc.setAttribute("logs", logs);
             sc.getRequestDispatcher("/jsp/logs.jsp").forward(req, resp);
-        } catch (IOException | ServletException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

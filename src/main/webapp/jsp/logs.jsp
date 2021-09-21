@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 <html lang="pt-br">
   <head>
     <%@ page contentType="text/html; charset=UTF-8" %>
@@ -33,7 +34,8 @@
             <c:if test="${!logs.isEmpty()}">
               <c:forEach var="log" items="${logs}">
                 <tr>
-                  <td><c:out value="${log.dataOperacao}" /></td>
+                  <fmt:parseDate value="${log.dataOperacao}" pattern="yyyy-MM-dd" var="parsedDate" type="date" />
+                  <td><fmt:formatDate pattern = "dd/MM/yyyy" value = "${parsedDate}" /></td>
                   <td><c:out value="${log.tipoOperacao.tipo}" /></td>
                   <td><c:out value="${log.operacao}" /></td>
                   <td><c:out value="${log.args}" /></td>

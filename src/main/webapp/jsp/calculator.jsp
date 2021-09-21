@@ -20,7 +20,7 @@
         <div class="center">
           <div class="item">
             <p>Insira um número</p>
-            <input type="number" name="op1" id="op1" placeholder="Número 1" />
+            <input type="number" name="op1" id="op1" placeholder="Número 1" step="any" />
           </div>
           <div class="item center">
             <select name="operacao" id="operacao">
@@ -33,7 +33,7 @@
           </div>
           <div class="item n2">
             <p>Insira outro número</p>
-            <input type="number" name="op2" id="op2" placeholder="Número 2" />
+            <input type="number" name="op2" id="op2" placeholder="Número 2" step="any" />
           </div>
           <div class="item">
             <input type="submit" name="submit" id="submit" value="Calcular" />

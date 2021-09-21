@@ -5,7 +5,6 @@ import br.com.fatec.model.LogDAO;
 import br.com.fatec.model.LogServices;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +23,7 @@ public class LogController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         List<Log> logs = null;
+
         try {
             logs = LogDAO.getInstance().findAll();
         } catch (Exception e) {

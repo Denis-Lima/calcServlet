@@ -58,17 +58,21 @@ function postResult(op1, op2, operacao) {
     if (tipo) {
         const xhttp = new XMLHttpRequest()
         xhttp.onreadystatechange = function () {
-            console.log("readyState", this.readyState)
-            console.log("status", this.status)
             if (this.readyState === 4 && this.status === 200) {
                 const result = document.querySelector("#resultado")
                 result.innerHTML = `Resultado: ${this.responseText}`
                 saveLog(op1, op2, operacao, this.responseText, tipo)
             }
         }
-        const urlCalcService = `http://localhost:9090/${tipo}Services-1.0/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
-        console.log(urlCalcService)
+        let urlCalcService
+        if (tipo == "elementar") {
+            urlCalcService = `http://localhost:8083/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
+        } else {
+            urlCalcService = `http://localhost:8084/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
+        }
         xhttp.open("POST", urlCalcService, true)
+        xhttp.setRequestHeader('Access-Control-Allow-Origin', '*')
+        xhttp.setRequestHeader('Content-Type', 'text/plain')
         xhttp.send()
     }
 }

@@ -24,13 +24,14 @@ public class Filtro implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
+        ((HttpServletResponse) response).setHeader("Access-Control-Allow-Origin", "*");
+        ((HttpServletResponse) response).setHeader("Access-Control-Allow-Methods","GET, OPTIONS, HEAD, PUT, POST");
+        ((HttpServletResponse) response).setHeader("Access-Control-Allow-Headers", "*");
+        ((HttpServletResponse) response).setHeader("Access-Control-Max-Age", "1728000");
         String contextPath = req.getContextPath();
         String uri = req.getServletPath();
-        //String uri = req.getRequestURI().replace(contextPath, "");
 
         boolean isStaticResource = uri.contains("resources/");
-
-        System.out.println("filtro chamado -----> " + uri);
 
         if (!uri.contains("favicon") && !uri.contains("/calc/")) {
             if (mappedUrl.contains(uri) || isStaticResource) {

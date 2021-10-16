@@ -66,9 +66,9 @@ function postResult(op1, op2, operacao) {
         }
         let urlCalcService
         if (tipo == "elementar") {
-            urlCalcService = `http://localhost:8083/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
+            urlCalcService = `http://localhost:8099/gateway/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
         } else {
-            urlCalcService = `http://localhost:8084/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
+            urlCalcService = `http://localhost:8099/gateway/calc/${tipo}?op1=${op1}&op2=${op2}&operacao=${operacao}`
         }
         xhttp.open("POST", urlCalcService, true)
         xhttp.setRequestHeader('Access-Control-Allow-Origin', '*')

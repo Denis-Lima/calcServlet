@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class Log {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = "data_operacao", nullable = false)

@@ -1,7 +1,7 @@
 html,
 body {
   background-color: aqua;
-  overflow: hidden;
+  overflow: auto;
   margin: 0;
   padding: 0;
 }
